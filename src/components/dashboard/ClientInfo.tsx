@@ -2,6 +2,7 @@ import { LiquidGlassCard } from "@/components/ui/LiquidGlassCard";
 import { LiquidGlassBadge } from "@/components/ui/LiquidGlassBadge";
 import { User, Phone, Smartphone } from "lucide-react";
 import { formatMSISDN, formatIMSI, formatICCID } from "@/utils/formatters";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface ClientInfoProps {
   msisdn: string;
@@ -27,59 +28,98 @@ export const ClientInfo = ({ msisdn, imsi, iccId, operatorName, status, searched
         <h3 className="font-bold text-lg tracking-tight">Identificação do Chip/Linha</h3>
       </div>
 
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <span className="text-muted-foreground text-sm tracking-tight">Operadora</span>
-          <span className="font-semibold tracking-tight">{getOperatorName(operatorName)}</span>
-        </div>
-
-        {searchedBy && (
-          <div className="pt-2 border-t border-white/10">
-            <LiquidGlassBadge variant="info" className="w-full justify-center">
-              Buscado por: {searchedBy}
-            </LiquidGlassBadge>
+      <TooltipProvider>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground text-sm tracking-tight">Operadora</span>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="font-semibold tracking-tight cursor-help">{getOperatorName(operatorName)}</span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">operatorName: "{operatorName}"</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
-        )}
 
-        <div className="space-y-2 pt-2">
-          <div className="flex items-start justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <span className="text-muted-foreground text-sm tracking-tight">MSISDN</span>
+          {searchedBy && (
+            <div className="pt-2 border-t border-white/10">
+              <LiquidGlassBadge variant="info" className="w-full justify-center">
+                Buscado por: {searchedBy}
+              </LiquidGlassBadge>
             </div>
-            <span className="font-mono text-sm font-semibold tracking-tight text-right">
-              {formatMSISDN(msisdn)}
-            </span>
+          )}
+
+          <div className="space-y-2 pt-2">
+            <div className="flex items-start justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                <span className="text-muted-foreground text-sm tracking-tight">MSISDN</span>
+              </div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span className="font-mono text-sm font-semibold tracking-tight text-right cursor-help">
+                    {formatMSISDN(msisdn)}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="text-xs">msisdn: "{msisdn}"</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+
+            <div className="flex items-start justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Smartphone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                <span className="text-muted-foreground text-sm tracking-tight">IMSI</span>
+              </div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span className="font-mono text-sm font-semibold tracking-tight text-right cursor-help">
+                    {formatIMSI(imsi)}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="text-xs">imsi: "{imsi}"</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+
+            <div className="flex items-start justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Smartphone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                <span className="text-muted-foreground text-sm tracking-tight">ICCID</span>
+              </div>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span className="font-mono text-sm font-semibold tracking-tight text-right break-all cursor-help">
+                    {formatICCID(iccId)}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="text-xs">iccId: "{iccId}"</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
           </div>
 
-          <div className="flex items-start justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <Smartphone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <span className="text-muted-foreground text-sm tracking-tight">IMSI</span>
-            </div>
-            <span className="font-mono text-sm font-semibold tracking-tight text-right">
-              {formatIMSI(imsi)}
-            </span>
-          </div>
-
-          <div className="flex items-start justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <Smartphone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-              <span className="text-muted-foreground text-sm tracking-tight">ICCID</span>
-            </div>
-            <span className="font-mono text-sm font-semibold tracking-tight text-right break-all">
-              {formatICCID(iccId)}
-            </span>
+          <div className="flex items-center justify-between pt-2 border-t border-white/10">
+            <span className="text-muted-foreground text-sm tracking-tight">Status da Linha</span>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-help">
+                  <LiquidGlassBadge variant={status === "Ativo" ? "success" : "error"}>
+                    {status}
+                  </LiquidGlassBadge>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">status: "{status}"</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
         </div>
-
-        <div className="flex items-center justify-between pt-2 border-t border-white/10">
-          <span className="text-muted-foreground text-sm tracking-tight">Status da Linha</span>
-          <LiquidGlassBadge variant={status === "Ativo" ? "success" : "error"}>
-            {status}
-          </LiquidGlassBadge>
-        </div>
-      </div>
+      </TooltipProvider>
     </LiquidGlassCard>
   );
 };

@@ -1,6 +1,7 @@
 import { LiquidGlassCard } from "@/components/ui/LiquidGlassCard";
 import { LiquidGlassBadge } from "@/components/ui/LiquidGlassBadge";
 import { Wifi, Phone, MessageSquare, Signal, Globe } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface ActiveServicesProps {
   volatileData: any;
@@ -21,43 +22,82 @@ export const ActiveServices = ({ volatileData, lteData }: ActiveServicesProps) =
         <h3 className="font-bold text-lg tracking-tight">Status de Serviços</h3>
       </div>
 
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground text-sm tracking-tight">Voz</span>
+      <TooltipProvider>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-muted-foreground" />
+              <span className="text-muted-foreground text-sm tracking-tight">Voz</span>
+            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-help">
+                  <LiquidGlassBadge variant={hasVoice ? "success" : "warning"}>
+                    {hasVoice ? "Ativo" : "Inativo"}
+                  </LiquidGlassBadge>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">mscNumber: {hasVoice ? "presente" : "null"}</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
-          <LiquidGlassBadge variant={hasVoice ? "success" : "warning"}>
-            {hasVoice ? "Ativo" : "Inativo"}
-          </LiquidGlassBadge>
-        </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <MessageSquare className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground text-sm tracking-tight">SMS</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <MessageSquare className="h-4 w-4 text-muted-foreground" />
+              <span className="text-muted-foreground text-sm tracking-tight">SMS</span>
+            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-help">
+                  <LiquidGlassBadge variant="success">Disponível</LiquidGlassBadge>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">SMS: sempre disponível quando linha ativa</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
-          <LiquidGlassBadge variant="success">Disponível</LiquidGlassBadge>
-        </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Signal className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground text-sm tracking-tight">Dados 4G</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Signal className="h-4 w-4 text-muted-foreground" />
+              <span className="text-muted-foreground text-sm tracking-tight">Dados 4G</span>
+            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-help">
+                  <LiquidGlassBadge variant={has4G && !hasSgsnLocation ? "warning" : has4G ? "success" : "info"}>
+                    {has4G && !hasSgsnLocation ? "Config. OK, sem localização" : has4G ? "Ativo" : "3G"}
+                  </LiquidGlassBadge>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">lteData: {has4G ? "presente" : "null"}</p>
+                <p className="text-xs">sgsnLocationInformation: {hasSgsnLocation ? "presente" : "{}"}</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
-          <LiquidGlassBadge variant={has4G && !hasSgsnLocation ? "warning" : has4G ? "success" : "info"}>
-            {has4G && !hasSgsnLocation ? "Config. OK, sem localização" : has4G ? "Ativo" : "3G"}
-          </LiquidGlassBadge>
-        </div>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Globe className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground text-sm tracking-tight">Roaming</span>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Globe className="h-4 w-4 text-muted-foreground" />
+              <span className="text-muted-foreground text-sm tracking-tight">Roaming</span>
+            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-help">
+                  <LiquidGlassBadge variant="info">Verificar VLR</LiquidGlassBadge>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">vlrLocationInformation: verificar para status de roaming</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
-          <LiquidGlassBadge variant="info">Verificar VLR</LiquidGlassBadge>
         </div>
-      </div>
+      </TooltipProvider>
     </LiquidGlassCard>
   );
 };

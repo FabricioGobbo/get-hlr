@@ -30,64 +30,64 @@ export const TechnicalDetails = ({ hlrData }: TechnicalDetailsProps) => {
         </CollapsibleTrigger>
 
         <CollapsibleContent className="mt-4">
-          <div className="space-y-4 text-sm">
-            <div>
-              <h4 className="font-semibold mb-2 text-muted-foreground tracking-tight">
+          <div className="space-y-3 text-sm">
+            <div className="bg-white/5 rounded-lg p-3">
+              <h4 className="font-semibold mb-2.5 text-sm tracking-tight">
                 Parâmetros MILENAGE
               </h4>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">R1:</span>
-                  <span className="font-mono">{hlrData.r1}</span>
+              <div className="grid grid-cols-5 gap-3">
+                <div className="bg-background/30 rounded-md p-2">
+                  <div className="text-xs text-muted-foreground mb-1">R1</div>
+                  <div className="font-mono text-sm font-semibold">{hlrData.r1}</div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">R2:</span>
-                  <span className="font-mono">{hlrData.r2}</span>
+                <div className="bg-background/30 rounded-md p-2">
+                  <div className="text-xs text-muted-foreground mb-1">R2</div>
+                  <div className="font-mono text-sm font-semibold">{hlrData.r2}</div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">R3:</span>
-                  <span className="font-mono">{hlrData.r3}</span>
+                <div className="bg-background/30 rounded-md p-2">
+                  <div className="text-xs text-muted-foreground mb-1">R3</div>
+                  <div className="font-mono text-sm font-semibold">{hlrData.r3}</div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">R4:</span>
-                  <span className="font-mono">{hlrData.r4}</span>
+                <div className="bg-background/30 rounded-md p-2">
+                  <div className="text-xs text-muted-foreground mb-1">R4</div>
+                  <div className="font-mono text-sm font-semibold">{hlrData.r4}</div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">R5:</span>
-                  <span className="font-mono">{hlrData.r5}</span>
+                <div className="bg-background/30 rounded-md p-2">
+                  <div className="text-xs text-muted-foreground mb-1">R5</div>
+                  <div className="font-mono text-sm font-semibold">{hlrData.r5}</div>
                 </div>
               </div>
             </div>
 
-            <div>
-              <h4 className="font-semibold mb-2 text-muted-foreground tracking-tight">
+            <div className="bg-white/5 rounded-lg p-3">
+              <h4 className="font-semibold mb-2.5 text-sm tracking-tight">
                 Tamanhos de Chave
               </h4>
-              <div className="space-y-1">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">K Length:</span>
-                  <span className="font-mono">{hlrData.k_length}</span>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">K Length</span>
+                  <span className="font-mono text-sm font-semibold">{hlrData.k_length}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">CK Length:</span>
-                  <span className="font-mono">{hlrData.ck_length}</span>
+                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">CK Length</span>
+                  <span className="font-mono text-sm font-semibold">{hlrData.ck_length}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">IK Length:</span>
-                  <span className="font-mono">{hlrData.ik_length}</span>
+                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">IK Length</span>
+                  <span className="font-mono text-sm font-semibold">{hlrData.ik_length}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">RES Length:</span>
-                  <span className="font-mono">{hlrData.res_length}</span>
+                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-xs text-muted-foreground">RES Length</span>
+                  <span className="font-mono text-sm font-semibold">{hlrData.res_length}</span>
                 </div>
               </div>
             </div>
 
-            <div>
-              <h4 className="font-semibold mb-2 text-muted-foreground tracking-tight">Outros</h4>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Iterações Keccak:</span>
-                <span className="font-mono">{hlrData.keccakIterations}</span>
+            <div className="bg-white/5 rounded-lg p-3">
+              <h4 className="font-semibold mb-2.5 text-sm tracking-tight">Outros Parâmetros</h4>
+              <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
+                <span className="text-xs text-muted-foreground">Iterações Keccak</span>
+                <span className="font-mono text-sm font-semibold">{hlrData.keccakIterations}</span>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { LiquidGlassCard } from "@/components/ui/LiquidGlassCard";
 import { LiquidGlassBadge } from "@/components/ui/LiquidGlassBadge";
 import { Shield, Lock, CheckCircle } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface SecurityStatusProps {
   hlrData: any;
@@ -16,37 +17,70 @@ export const SecurityStatus = ({ hlrData }: SecurityStatusProps) => {
         <h3 className="font-bold text-lg tracking-tight">Status de Segurança</h3>
       </div>
 
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <span className="text-muted-foreground text-sm tracking-tight">Autenticação</span>
-          <LiquidGlassBadge variant={hlrData.active ? "success" : "error"}>
-            <CheckCircle className="h-3 w-3" />
-            {hlrData.active ? "Ativa" : "Inativa"}
-          </LiquidGlassBadge>
-        </div>
+      <TooltipProvider>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground text-sm tracking-tight">Autenticação</span>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-help">
+                  <LiquidGlassBadge variant={hlrData.active ? "success" : "error"}>
+                    <CheckCircle className="h-3 w-3" />
+                    {hlrData.active ? "Ativa" : "Inativa"}
+                  </LiquidGlassBadge>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">hlrData.active: {hlrData.active.toString()}</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
 
-        <div className="flex items-center justify-between">
-          <span className="text-muted-foreground text-sm tracking-tight">Criptografia</span>
-          <span className="font-semibold text-sm tracking-tight">
-            <Lock className="h-3 w-3 inline mr-1" />
-            {hlrData.encryption} {hlrData.k_length?.replace('K_', '')}bit
-          </span>
-        </div>
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground text-sm tracking-tight">Criptografia</span>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="font-semibold text-sm tracking-tight cursor-help">
+                  <Lock className="h-3 w-3 inline mr-1" />
+                  {hlrData.encryption} {hlrData.k_length?.replace('K_', '')}bit
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">encryption: "{hlrData.encryption}"</p>
+                <p className="text-xs">k_length: "{hlrData.k_length}"</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
 
-        <div className="flex items-center justify-between">
-          <span className="text-muted-foreground text-sm tracking-tight">Protocolo</span>
-          <span className="font-semibold text-sm tracking-tight">
-            {hlrData.authenticationScheme}
-          </span>
-        </div>
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground text-sm tracking-tight">Protocolo</span>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="font-semibold text-sm tracking-tight cursor-help">
+                  {hlrData.authenticationScheme}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">authenticationScheme: "{hlrData.authenticationScheme}"</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
 
-        <div className="flex items-center justify-between">
-          <span className="text-muted-foreground text-sm tracking-tight">Algoritmo</span>
-          <span className="font-semibold text-sm tracking-tight">
-            {hlrData.algorithm}
-          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-muted-foreground text-sm tracking-tight">Algoritmo</span>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span className="font-semibold text-sm tracking-tight cursor-help">
+                  {hlrData.algorithm}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">algorithm: "{hlrData.algorithm}"</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
         </div>
-      </div>
+      </TooltipProvider>
     </LiquidGlassCard>
   );
 };

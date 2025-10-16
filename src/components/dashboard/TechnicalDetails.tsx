@@ -33,82 +33,82 @@ export const TechnicalDetails = ({ hlrData }: TechnicalDetailsProps) => {
   <div className="space-y-4 text-sm">
     
     {/* Card: Parâmetros MILENAGE */}
-    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl">
-      <h4 className="font-semibold mb-3 text-sm tracking-tighter text-white/90">
+    <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/30 shadow-2xl">
+      <h4 className="font-bold mb-3 text-base tracking-tight text-white">
         Parâmetros MILENAGE
       </h4>
-      <div className="border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm">
+      <div className="border border-white/20 rounded-xl overflow-hidden backdrop-blur-sm bg-black/20">
         <div className="grid grid-cols-5">
           {/* Headers */}
-          <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
-            <span className="text-xs font-semibold text-white/70 tracking-tight">R1</span>
+          <div className="border-r border-b border-white/20 bg-white/10 p-3 text-center">
+            <span className="text-sm font-bold text-white/90 tracking-tight">R1</span>
           </div>
-          <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
-            <span className="text-xs font-semibold text-white/70 tracking-tight">R2</span>
+          <div className="border-r border-b border-white/20 bg-white/10 p-3 text-center">
+            <span className="text-sm font-bold text-white/90 tracking-tight">R2</span>
           </div>
-          <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
-            <span className="text-xs font-semibold text-white/70 tracking-tight">R3</span>
+          <div className="border-r border-b border-white/20 bg-white/10 p-3 text-center">
+            <span className="text-sm font-bold text-white/90 tracking-tight">R3</span>
           </div>
-          <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
-            <span className="text-xs font-semibold text-white/70 tracking-tight">R4</span>
+          <div className="border-r border-b border-white/20 bg-white/10 p-3 text-center">
+            <span className="text-sm font-bold text-white/90 tracking-tight">R4</span>
           </div>
-          <div className="border-b border-white/10 bg-white/5 p-3 text-center">
-            <span className="text-xs font-semibold text-white/70 tracking-tight">R5</span>
+          <div className="border-b border-white/20 bg-white/10 p-3 text-center">
+            <span className="text-sm font-bold text-white/90 tracking-tight">R5</span>
           </div>
           
           {/* Valores */}
-          <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
-            <span className="font-mono text-lg font-bold text-white">{hlrData.r1}</span>
+          <div className="border-r border-white/20 p-3 text-center bg-black/10 hover:bg-white/15 transition-colors">
+            <span className="font-mono text-xl font-extrabold text-white">{hlrData.r1}</span>
           </div>
-          <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
-            <span className="font-mono text-lg font-bold text-white">{hlrData.r2}</span>
+          <div className="border-r border-white/20 p-3 text-center bg-black/10 hover:bg-white/15 transition-colors">
+            <span className="font-mono text-xl font-extrabold text-white">{hlrData.r2}</span>
           </div>
-          <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
-            <span className="font-mono text-lg font-bold text-white">{hlrData.r3}</span>
+          <div className="border-r border-white/20 p-3 text-center bg-black/10 hover:bg-white/15 transition-colors">
+            <span className="font-mono text-xl font-extrabold text-white">{hlrData.r3}</span>
           </div>
-          <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
-            <span className="font-mono text-lg font-bold text-white">{hlrData.r4}</span>
+          <div className="border-r border-white/20 p-3 text-center bg-black/10 hover:bg-white/15 transition-colors">
+            <span className="font-mono text-xl font-extrabold text-white">{hlrData.r4}</span>
           </div>
-          <div className="p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
-            <span className="font-mono text-lg font-bold text-white">{hlrData.r5}</span>
+          <div className="p-3 text-center bg-black/10 hover:bg-white/15 transition-colors">
+            <span className="font-mono text-xl font-extrabold text-white">{hlrData.r5}</span>
           </div>
         </div>
       </div>
     </div>
 
     {/* Card: Tamanhos de Chave */}
-    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl">
-      <h4 className="font-semibold mb-3 text-sm tracking-tighter text-white/90">
+    <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/30 shadow-2xl">
+      <h4 className="font-bold mb-3 text-base tracking-tight text-white">
         Tamanhos de Chave
       </h4>
       <div className="grid grid-cols-2 gap-3">
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-all">
-          <span className="text-xs font-medium text-white/70">K Length</span>
-          <span className="font-mono text-sm font-bold text-white">{hlrData.k_length}</span>
+        <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 border border-white/20 flex items-center justify-between hover:bg-white/15 transition-all">
+          <span className="text-sm font-semibold text-white/90">K Length</span>
+          <span className="font-mono text-base font-bold text-white">{hlrData.k_length}</span>
         </div>
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-all">
-          <span className="text-xs font-medium text-white/70">CK Length</span>
-          <span className="font-mono text-sm font-bold text-white">{hlrData.ck_length}</span>
+        <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 border border-white/20 flex items-center justify-between hover:bg-white/15 transition-all">
+          <span className="text-sm font-semibold text-white/90">CK Length</span>
+          <span className="font-mono text-base font-bold text-white">{hlrData.ck_length}</span>
         </div>
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-all">
-          <span className="text-xs font-medium text-white/70">IK Length</span>
-          <span className="font-mono text-sm font-bold text-white">{hlrData.ik_length}</span>
+        <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 border border-white/20 flex items-center justify-between hover:bg-white/15 transition-all">
+          <span className="text-sm font-semibold text-white/90">IK Length</span>
+          <span className="font-mono text-base font-bold text-white">{hlrData.ik_length}</span>
         </div>
-        <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-all">
-          <span className="text-xs font-medium text-white/70">RES Length</span>
-          <span className="font-mono text-sm font-bold text-white">{hlrData.res_length}</span>
+        <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 border border-white/20 flex items-center justify-between hover:bg-white/15 transition-all">
+          <span className="text-sm font-semibold text-white/90">RES Length</span>
+          <span className="font-mono text-base font-bold text-white">{hlrData.res_length}</span>
         </div>
       </div>
     </div>
 
     {/* Card: Outros Parâmetros */}
-    <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl">
-      <h4 className="font-semibold mb-3 text-sm tracking-tighter text-white/90">
+    <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 border border-white/30 shadow-2xl">
+      <h4 className="font-bold mb-3 text-base tracking-tight text-white">
         Outros Parâmetros
       </h4>
-      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/10 flex items-center justify-between hover:bg-white/10 transition-all">
-        <span className="text-xs font-medium text-white/70">Iterações Keccak</span>
-        <span className="font-mono text-base font-bold text-white">{hlrData.keccakIterations}</span>
+      <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 border border-white/20 flex items-center justify-between hover:bg-white/15 transition-all">
+        <span className="text-sm font-semibold text-white/90">Iterações Keccak</span>
+        <span className="font-mono text-lg font-bold text-white">{hlrData.keccakIterations}</span>
       </div>
     </div>
 

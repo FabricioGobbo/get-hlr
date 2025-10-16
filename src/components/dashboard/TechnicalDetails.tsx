@@ -35,26 +35,28 @@ export const TechnicalDetails = ({ hlrData }: TechnicalDetailsProps) => {
               <h4 className="font-semibold mb-2.5 text-sm tracking-tight">
                 Parâmetros MILENAGE
               </h4>
-              <div className="space-y-2">
-                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">R1</span>
-                  <span className="font-mono text-sm font-semibold">{hlrData.r1}</span>
-                </div>
-                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">R2</span>
-                  <span className="font-mono text-sm font-semibold">{hlrData.r2}</span>
-                </div>
-                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">R3</span>
-                  <span className="font-mono text-sm font-semibold">{hlrData.r3}</span>
-                </div>
-                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">R4</span>
-                  <span className="font-mono text-sm font-semibold">{hlrData.r4}</span>
-                </div>
-                <div className="bg-background/30 rounded-md p-2 flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">R5</span>
-                  <span className="font-mono text-sm font-semibold">{hlrData.r5}</span>
+              <div className="bg-background/30 rounded-md p-3">
+                <div className="grid grid-cols-5 gap-4 text-center">
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">R1</div>
+                    <div className="font-mono text-sm font-semibold">{hlrData.r1}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">R2</div>
+                    <div className="font-mono text-sm font-semibold">{hlrData.r2}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">R3</div>
+                    <div className="font-mono text-sm font-semibold">{hlrData.r3}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">R4</div>
+                    <div className="font-mono text-sm font-semibold">{hlrData.r4}</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground mb-2">R5</div>
+                    <div className="font-mono text-sm font-semibold">{hlrData.r5}</div>
+                  </div>
                 </div>
               </div>
             </div>

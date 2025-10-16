@@ -19,7 +19,7 @@ export const LiquidGlassButton = forwardRef<HTMLButtonElement, LiquidGlassButton
           "hover:scale-105 active:scale-95",
           "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100",
           variant === "primary" &&
-            "bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0 shadow-lg hover:shadow-blue-500/50",
+            "bg-blue-500/20 border-blue-400/50 text-blue-700 dark:text-blue-300 hover:bg-blue-500/30",
           variant === "secondary" && "hover:bg-white/20 dark:hover:bg-white/10",
           className
         )}

@@ -31,42 +31,44 @@ export const TechnicalDetails = ({ hlrData }: TechnicalDetailsProps) => {
 
         <CollapsibleContent className="mt-4">
           <div className="space-y-3 text-sm">
-            <div className="bg-white/5 rounded-lg p-3">
-              <h4 className="font-semibold mb-2.5 text-sm tracking-tight">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl">
+              <h4 className="font-semibold mb-3 text-sm tracking-tighter text-white/90">
                 Parâmetros MILENAGE
               </h4>
-              <div className="border border-border rounded-lg overflow-hidden">
+              <div className="border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm">
                 <div className="grid grid-cols-5">
-                  <div className="border-r border-b border-border bg-muted/50 p-3 text-center">
-                    <span className="text-sm font-medium text-muted-foreground">R1</span>
+                  {/* Headers */}
+                  <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
+                    <span className="text-xs font-semibold text-white/70 tracking-tight">R1</span>
                   </div>
-                  <div className="border-r border-b border-border bg-muted/50 p-3 text-center">
-                    <span className="text-sm font-medium text-muted-foreground">R2</span>
+                  <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
+                    <span className="text-xs font-semibold text-white/70 tracking-tight">R2</span>
                   </div>
-                  <div className="border-r border-b border-border bg-muted/50 p-3 text-center">
-                    <span className="text-sm font-medium text-muted-foreground">R3</span>
+                  <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
+                    <span className="text-xs font-semibold text-white/70 tracking-tight">R3</span>
                   </div>
-                  <div className="border-r border-b border-border bg-muted/50 p-3 text-center">
-                    <span className="text-sm font-medium text-muted-foreground">R4</span>
+                  <div className="border-r border-b border-white/10 bg-white/5 p-3 text-center">
+                    <span className="text-xs font-semibold text-white/70 tracking-tight">R4</span>
                   </div>
-                  <div className="border-b border-border bg-muted/50 p-3 text-center">
-                    <span className="text-sm font-medium text-muted-foreground">R5</span>
+                  <div className="border-b border-white/10 bg-white/5 p-3 text-center">
+                    <span className="text-xs font-semibold text-white/70 tracking-tight">R5</span>
                   </div>
                   
-                  <div className="border-r border-border p-3 text-center">
-                    <span className="font-mono text-base font-bold">{hlrData.r1}</span>
+                  {/* Valores */}
+                  <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
+                    <span className="font-mono text-lg font-bold text-white">{hlrData.r1}</span>
                   </div>
-                  <div className="border-r border-border p-3 text-center">
-                    <span className="font-mono text-base font-bold">{hlrData.r2}</span>
+                  <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
+                    <span className="font-mono text-lg font-bold text-white">{hlrData.r2}</span>
                   </div>
-                  <div className="border-r border-border p-3 text-center">
-                    <span className="font-mono text-base font-bold">{hlrData.r3}</span>
+                  <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
+                    <span className="font-mono text-lg font-bold text-white">{hlrData.r3}</span>
                   </div>
-                  <div className="border-r border-border p-3 text-center">
-                    <span className="font-mono text-base font-bold">{hlrData.r4}</span>
+                  <div className="border-r border-white/10 p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
+                    <span className="font-mono text-lg font-bold text-white">{hlrData.r4}</span>
                   </div>
-                  <div className="p-3 text-center">
-                    <span className="font-mono text-base font-bold">{hlrData.r5}</span>
+                  <div className="p-3 text-center bg-white/5 hover:bg-white/10 transition-colors">
+                    <span className="font-mono text-lg font-bold text-white">{hlrData.r5}</span>
                   </div>
                 </div>
               </div>

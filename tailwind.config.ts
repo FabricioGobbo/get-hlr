@@ -22,6 +22,10 @@ export default {
       backdropBlur: {
         xs: '2px',
       },
+      boxShadow: {
+        'glow-blue': '0 0 40px rgba(59, 130, 246, 0.9)',
+        'glow-purple': '0 0 40px rgba(168, 85, 247, 0.9)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -1,89 +1,36 @@
 import { LiquidGlassCard } from "@/components/ui/LiquidGlassCard";
 import { LiquidGlassBadge } from "@/components/ui/LiquidGlassBadge";
-import { Signal, ShieldAlert, CheckCircle2, XCircle, AlertTriangle } from "lucide-react";
-
-interface LineData {
-  status: "ativa" | "inativa";
-  ativacao: string;
-  bloqueios: string[];
-  qualidadeSinal: number;
-}
+import { Signal, CheckCircle } from "lucide-react";
 
 interface LineStatusProps {
-  data: LineData;
+  isActive: boolean;
 }
 
-const blockTranslations: Record<string, { label: string; icon: any; variant: "error" | "warning" }> = {
-  PCS_BLOCK: { label: "Pagamento Pendente", icon: XCircle, variant: "error" },
-  IMEI_BLOCK: { label: "Bloqueio por Perda/Roubo", icon: ShieldAlert, variant: "error" },
-  ADM_BLOCK: { label: "Bloqueio Administrativo", icon: AlertTriangle, variant: "warning" },
-};
-
-export const LineStatus = ({ data }: LineStatusProps) => {
-  const hasBlocks = data.bloqueios.length > 0;
-  const StatusIcon = data.status === "ativa" ? CheckCircle2 : XCircle;
-
+export const LineStatus = ({ isActive }: LineStatusProps) => {
   return (
     <LiquidGlassCard>
-      <div className="space-y-4">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="glass glass-border rounded-full p-3">
-            <Signal className="h-6 w-6 text-primary" />
-          </div>
-          <h3 className="text-2xl font-bold tracking-tighter">Status da Linha</h3>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-2 rounded-xl bg-green-500/20">
+          <Signal className="h-5 w-5 text-green-600 dark:text-green-400" />
+        </div>
+        <h3 className="font-bold text-lg tracking-tight">Status da Linha</h3>
+      </div>
+
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <span className="text-muted-foreground text-sm tracking-tight">Status Geral</span>
+          <LiquidGlassBadge variant={isActive ? "success" : "error"}>
+            <CheckCircle className="h-3 w-3" />
+            {isActive ? "Linha Ativa" : "Linha Inativa"}
+          </LiquidGlassBadge>
         </div>
 
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-muted-foreground tracking-tight">Status Geral</span>
-            <LiquidGlassBadge variant={data.status === "ativa" ? "success" : "error"}>
-              <StatusIcon className="h-3.5 w-3.5" />
-              {data.status === "ativa" ? "Linha Ativa" : "Linha Inativa"}
-            </LiquidGlassBadge>
-          </div>
-
-          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-          <div className="space-y-2">
-            <span className="text-sm text-muted-foreground tracking-tight block">Bloqueios</span>
-            {hasBlocks ? (
-              <div className="space-y-2">
-                {data.bloqueios.map((bloqueio, index) => {
-                  const translation = blockTranslations[bloqueio] || {
-                    label: bloqueio,
-                    icon: AlertTriangle,
-                    variant: "warning" as const,
-                  };
-                  const Icon = translation.icon;
-                  return (
-                    <LiquidGlassBadge key={index} variant={translation.variant}>
-                      <Icon className="h-3.5 w-3.5" />
-                      {translation.label}
-                    </LiquidGlassBadge>
-                  );
-                })}
-              </div>
-            ) : (
-              <LiquidGlassBadge variant="success">
-                <CheckCircle2 className="h-3.5 w-3.5" />
-                Sem Bloqueios
-              </LiquidGlassBadge>
-            )}
-          </div>
-
-          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground tracking-tight">Qualidade do Sinal</span>
-              <span className="font-semibold tracking-tight">{data.qualidadeSinal}%</span>
-            </div>
-            <div className="glass glass-border rounded-full h-2 overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-emerald-500 to-green-400 transition-all duration-500"
-                style={{ width: `${data.qualidadeSinal}%` }}
-              />
-            </div>
+        <div className="glass glass-border rounded-xl p-4 bg-green-500/5 border-green-500/20">
+          <div className="flex items-center gap-2 text-sm">
+            <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+            <span className="text-muted-foreground tracking-tight">
+              {isActive ? "Linha operacional e pronta para uso" : "Linha desativada"}
+            </span>
           </div>
         </div>
       </div>

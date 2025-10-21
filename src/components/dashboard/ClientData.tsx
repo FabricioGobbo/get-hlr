@@ -140,12 +140,19 @@ export const ClientData = ({ data }: ClientDataProps) => {
         </LiquidGlassCard>
       </div>
 
-      {/* Row 4: Port-In */}
+      {/* Row 4: Port-In and Category */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-lg">{data.portIn}</p>
             <p className="text-xs text-muted-foreground tracking-tight">PORT-IN</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center lg:col-span-2">
+          <div className="space-y-1">
+            <p className="font-bold text-purple-600 dark:text-purple-400 text-lg">{data.categoria}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">CATEGORIA DO ASSINANTE NA MARCA</p>
           </div>
         </LiquidGlassCard>
       </div>

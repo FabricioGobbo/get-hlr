@@ -152,45 +152,45 @@ export const ClientData = ({ data }: ClientDataProps) => {
 
       {/* Row 5: Block Status Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+        <LiquidGlassCard hover={false} className="bg-emerald-600/40 border-emerald-400/60">
           <div className="text-center space-y-2">
-            <p className="font-bold text-white text-xl">NÃO</p>
-            <p className="text-xs text-white/90 tracking-tight">VOZ ORIGINADA BLOQUEADA?</p>
+            <p className="font-bold text-white text-xl drop-shadow-lg">NÃO</p>
+            <p className="text-xs text-white font-semibold tracking-tight">VOZ ORIGINADA BLOQUEADA?</p>
           </div>
         </LiquidGlassCard>
 
-        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+        <LiquidGlassCard hover={false} className="bg-emerald-600/40 border-emerald-400/60">
           <div className="text-center space-y-2">
-            <p className="font-bold text-white text-xl">NÃO</p>
-            <p className="text-xs text-white/90 tracking-tight">VOZ TERMINADA BLOQUEADA?</p>
+            <p className="font-bold text-white text-xl drop-shadow-lg">NÃO</p>
+            <p className="text-xs text-white font-semibold tracking-tight">VOZ TERMINADA BLOQUEADA?</p>
           </div>
         </LiquidGlassCard>
 
-        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+        <LiquidGlassCard hover={false} className="bg-emerald-600/40 border-emerald-400/60">
           <div className="text-center space-y-2">
-            <p className="font-bold text-white text-xl">NÃO</p>
-            <p className="text-xs text-white/90 tracking-tight">SMS BLOQUEADO?</p>
+            <p className="font-bold text-white text-xl drop-shadow-lg">NÃO</p>
+            <p className="text-xs text-white font-semibold tracking-tight">SMS BLOQUEADO?</p>
           </div>
         </LiquidGlassCard>
 
-        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+        <LiquidGlassCard hover={false} className="bg-emerald-600/40 border-emerald-400/60">
           <div className="text-center space-y-2">
-            <p className="font-bold text-white text-xl">NÃO</p>
-            <p className="text-xs text-white/90 tracking-tight">DADO BLOQUEADO?</p>
+            <p className="font-bold text-white text-xl drop-shadow-lg">NÃO</p>
+            <p className="text-xs text-white font-semibold tracking-tight">DADO BLOQUEADO?</p>
           </div>
         </LiquidGlassCard>
 
-        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+        <LiquidGlassCard hover={false} className="bg-emerald-600/40 border-emerald-400/60">
           <div className="text-center space-y-2">
-            <p className="font-bold text-white text-xl">NÃO</p>
-            <p className="text-xs text-white/90 tracking-tight">VELOCIDADE REDUZIDA?</p>
+            <p className="font-bold text-white text-xl drop-shadow-lg">NÃO</p>
+            <p className="text-xs text-white font-semibold tracking-tight">VELOCIDADE REDUZIDA?</p>
           </div>
         </LiquidGlassCard>
 
-        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+        <LiquidGlassCard hover={false} className="bg-emerald-600/40 border-emerald-400/60">
           <div className="text-center space-y-2">
-            <p className="font-bold text-white text-xl">NÃO</p>
-            <p className="text-xs text-white/90 tracking-tight">CHIP BLOQUEADO?</p>
+            <p className="font-bold text-white text-xl drop-shadow-lg">NÃO</p>
+            <p className="text-xs text-white font-semibold tracking-tight">CHIP BLOQUEADO?</p>
           </div>
         </LiquidGlassCard>
       </div>

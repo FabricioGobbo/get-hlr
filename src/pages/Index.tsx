@@ -57,9 +57,19 @@ const Index = () => {
               )}
 
               <Tabs defaultValue="cliente" className="mt-8">
-                <TabsList className="glass glass-border">
-                  <TabsTrigger value="cliente">Dados do Cliente</TabsTrigger>
-                  <TabsTrigger value="rede">Status na Rede</TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2 mb-8 bg-white/20 backdrop-blur-lg border-2 border-white/30 p-1">
+                  <TabsTrigger 
+                    value="cliente" 
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg font-semibold"
+                  >
+                    Dados do Cliente
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="rede"
+                    className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg font-semibold"
+                  >
+                    Status na Rede
+                  </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="cliente" className="mt-6">
@@ -76,7 +86,7 @@ const Index = () => {
                       status={subscriberData.hlrData.active ? "Ativo" : "Inativo"}
                       searchedBy={searchedBy}
                     />
-                    <LineStatus isActive={subscriberData.hlrData.active} />
+                    <LineStatus isActive={subscriberData.hlrData.active} volteActive={subscriberData.volteActive} />
                     <SecurityStatus hlrData={subscriberData.hlrData} />
                     <NetworkConfig hlrData={subscriberData.hlrData} lteData={subscriberData.lteData} />
                     <ActiveServices volatileData={subscriberData.volatileData} lteData={subscriberData.lteData} />

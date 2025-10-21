@@ -4,9 +4,10 @@ import { Signal, CheckCircle } from "lucide-react";
 
 interface LineStatusProps {
   isActive: boolean;
+  volteActive: boolean;
 }
 
-export const LineStatus = ({ isActive }: LineStatusProps) => {
+export const LineStatus = ({ isActive, volteActive }: LineStatusProps) => {
   return (
     <LiquidGlassCard>
       <div className="flex items-center gap-3 mb-4">
@@ -22,6 +23,14 @@ export const LineStatus = ({ isActive }: LineStatusProps) => {
           <LiquidGlassBadge variant={isActive ? "success" : "error"}>
             <CheckCircle className="h-3 w-3" />
             {isActive ? "Linha Ativa" : "Linha Inativa"}
+          </LiquidGlassBadge>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <span className="text-muted-foreground text-sm tracking-tight">Ativo no VoLTE</span>
+          <LiquidGlassBadge variant={volteActive ? "success" : "error"}>
+            <CheckCircle className="h-3 w-3" />
+            {volteActive ? "Sim" : "Não"}
           </LiquidGlassBadge>
         </div>
 

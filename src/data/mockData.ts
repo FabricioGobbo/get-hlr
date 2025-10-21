@@ -9,6 +9,7 @@ export const subscriberData = {
   status: "ACTIVE",
   sistema: "CORREIOS",
   operadora: "NENHUMA",
+  volteActive: true,
   chipActivationDate: "13-05-2025",
   planName: "SURF COLABORATOR - CLT",
   planActivationDate: "30-09-2025",

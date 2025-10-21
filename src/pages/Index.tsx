@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Header } from "@/components/Header";
 import { SearchBar } from "@/components/dashboard/SearchBar";
 import { ClientInfo } from "@/components/dashboard/ClientInfo";
-import { LineStatus } from "@/components/dashboard/LineStatus";
+
 import { ActiveServices } from "@/components/dashboard/ActiveServices";
 import { NetworkLocation } from "@/components/dashboard/NetworkLocation";
 import { SecurityStatus } from "@/components/dashboard/SecurityStatus";
@@ -86,11 +86,10 @@ const Index = () => {
                       status={subscriberData.hlrData.active ? "Ativo" : "Inativo"}
                       searchedBy={searchedBy}
                     />
-                    <LineStatus isActive={subscriberData.hlrData.active} volteActive={subscriberData.volteActive} />
-                    <SecurityStatus hlrData={subscriberData.hlrData} />
+                    <ActiveServices volatileData={subscriberData.volatileData} lteData={subscriberData.lteData} volteActive={subscriberData.volteActive} />
                     <NetworkConfig hlrData={subscriberData.hlrData} lteData={subscriberData.lteData} />
-                    <ActiveServices volatileData={subscriberData.volatileData} lteData={subscriberData.lteData} />
                     <NetworkLocation volatileData={subscriberData.volatileData} />
+                    <SecurityStatus hlrData={subscriberData.hlrData} />
                   </div>
 
                   <TechnicalDetails hlrData={subscriberData.hlrData} />

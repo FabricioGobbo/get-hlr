@@ -6,9 +6,10 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 interface ActiveServicesProps {
   volatileData: any;
   lteData: any;
+  volteActive: boolean;
 }
 
-export const ActiveServices = ({ volatileData, lteData }: ActiveServicesProps) => {
+export const ActiveServices = ({ volatileData, lteData, volteActive }: ActiveServicesProps) => {
   const hasVoice = volatileData?.mscNumber?.address;
   const hasSgsnLocation = volatileData?.sgsnLocationInformation && Object.keys(volatileData.sgsnLocationInformation).length > 0;
   const has4G = !!lteData;
@@ -93,6 +94,25 @@ export const ActiveServices = ({ volatileData, lteData }: ActiveServicesProps) =
               </TooltipTrigger>
               <TooltipContent>
                 <p className="text-xs">vlrLocationInformation: verificar para status de roaming</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Signal className="h-4 w-4 text-muted-foreground" />
+              <span className="text-muted-foreground text-sm tracking-tight">VoLTE</span>
+            </div>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="cursor-help">
+                  <LiquidGlassBadge variant={volteActive ? "success" : "warning"}>
+                    {volteActive ? "Ativo" : "Inativo"}
+                  </LiquidGlassBadge>
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="text-xs">VoLTE: {volteActive ? "ativo" : "inativo"}</p>
               </TooltipContent>
             </Tooltip>
           </div>

@@ -1,0 +1,199 @@
+import { LiquidGlassCard } from "@/components/ui/LiquidGlassCard";
+import { LiquidGlassBadge } from "@/components/ui/LiquidGlassBadge";
+
+interface ClientDataProps {
+  data: any;
+}
+
+export const ClientData = ({ data }: ClientDataProps) => {
+  return (
+    <div className="space-y-6 animate-in fade-in-0 duration-500">
+      {/* Row 1: MSISDN, PIN, PUK, ICCID, IMSI, STATUS */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="text-xs text-muted-foreground tracking-tight">MSISDN</p>
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.msisdn}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">ICCID</p>
+            <p className="font-bold text-blue-600 dark:text-blue-400">{data.iccId}</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="text-xs text-muted-foreground tracking-tight">PIN</p>
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.pin}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PUK</p>
+            <p className="font-bold text-blue-600 dark:text-blue-400">{data.puk}</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-2xl">{data.imsi}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">IMSI</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-green-600 dark:text-green-400 text-2xl">{data.status}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">STATUS</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-2xl">{data.sistema}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">SISTEMA</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-green-600 dark:text-green-400 text-2xl">{data.operadora}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">OPERADORA</p>
+          </div>
+        </LiquidGlassCard>
+      </div>
+
+      {/* Row 2: CPF, Chip Activation, Plan Info, Plan Dates */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.cpf}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">CPF</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.chipActivationDate}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">ATIVAÇÃO CHIP</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center lg:col-span-2">
+          <div className="space-y-1">
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.planName}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PLANO</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.planActivationDate}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">ATIVAÇÃO PLANO</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.planEndDate}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">FIM DO PLANO</p>
+          </div>
+        </LiquidGlassCard>
+      </div>
+
+      {/* Row 3: Service Suspension, Balances, Minutes, Data, SMS, Port-In */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.serviceSuspensionDate}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">SUSPENSO DE SERV.</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.totalBalance}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">SALDO TOTAL</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.indicationBalance}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">SALDO INDICAÇÃO</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.minutes}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">MINUTOS</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.dataUsage}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">DADOS</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.smsRemaining}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">SMS RESTANTES</p>
+          </div>
+        </LiquidGlassCard>
+      </div>
+
+      {/* Row 4: Port-In */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-lg">{data.portIn}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PORT-IN</p>
+          </div>
+        </LiquidGlassCard>
+      </div>
+
+      {/* Row 5: Block Status Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-xl">NÃO</p>
+            <p className="text-xs text-white/90 tracking-tight">VOZ ORIGINADA BLOQUEADA?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-xl">NÃO</p>
+            <p className="text-xs text-white/90 tracking-tight">VOZ TERMINADA BLOQUEADA?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-xl">NÃO</p>
+            <p className="text-xs text-white/90 tracking-tight">SMS BLOQUEADO?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-xl">NÃO</p>
+            <p className="text-xs text-white/90 tracking-tight">DADO BLOQUEADO?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-xl">NÃO</p>
+            <p className="text-xs text-white/90 tracking-tight">VELOCIDADE REDUZIDA?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="bg-green-500/20 border-green-500/30">
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-xl">NÃO</p>
+            <p className="text-xs text-white/90 tracking-tight">CHIP BLOQUEADO?</p>
+          </div>
+        </LiquidGlassCard>
+      </div>
+    </div>
+  );
+};

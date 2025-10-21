@@ -8,7 +8,9 @@ import { NetworkLocation } from "@/components/dashboard/NetworkLocation";
 import { SecurityStatus } from "@/components/dashboard/SecurityStatus";
 import { NetworkConfig } from "@/components/dashboard/NetworkConfig";
 import { TechnicalDetails } from "@/components/dashboard/TechnicalDetails";
+import { ClientData } from "@/components/dashboard/ClientData";
 import { LiquidGlassAlert } from "@/components/ui/LiquidGlassAlert";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { subscriberData } from "@/data/mockData";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -54,25 +56,36 @@ const Index = () => {
                 </LiquidGlassAlert>
               )}
 
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in-0 duration-500">
-                <ClientInfo
-                  msisdn={subscriberData.msisdn}
-                  imsi={subscriberData.imsi}
-                  iccId={subscriberData.iccId}
-                  operatorName={subscriberData.operatorName}
-                  status={subscriberData.hlrData.active ? "Ativo" : "Inativo"}
-                  searchedBy={searchedBy}
-                />
-                <LineStatus isActive={subscriberData.hlrData.active} />
-                <SecurityStatus hlrData={subscriberData.hlrData} />
-                <NetworkConfig hlrData={subscriberData.hlrData} lteData={subscriberData.lteData} />
-                <ActiveServices volatileData={subscriberData.volatileData} lteData={subscriberData.lteData} />
-                <NetworkLocation volatileData={subscriberData.volatileData} />
-              </div>
+              <Tabs defaultValue="cliente" className="mt-8">
+                <TabsList className="glass glass-border">
+                  <TabsTrigger value="cliente">Dados do Cliente</TabsTrigger>
+                  <TabsTrigger value="rede">Status na Rede</TabsTrigger>
+                </TabsList>
 
-              <div className="mt-6">
-                <TechnicalDetails hlrData={subscriberData.hlrData} />
-              </div>
+                <TabsContent value="cliente" className="mt-6">
+                  <ClientData data={subscriberData} />
+                </TabsContent>
+
+                <TabsContent value="rede" className="mt-6 space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in-0 duration-500">
+                    <ClientInfo
+                      msisdn={subscriberData.msisdn}
+                      imsi={subscriberData.imsi}
+                      iccId={subscriberData.iccId}
+                      operatorName={subscriberData.operatorName}
+                      status={subscriberData.hlrData.active ? "Ativo" : "Inativo"}
+                      searchedBy={searchedBy}
+                    />
+                    <LineStatus isActive={subscriberData.hlrData.active} />
+                    <SecurityStatus hlrData={subscriberData.hlrData} />
+                    <NetworkConfig hlrData={subscriberData.hlrData} lteData={subscriberData.lteData} />
+                    <ActiveServices volatileData={subscriberData.volatileData} lteData={subscriberData.lteData} />
+                    <NetworkLocation volatileData={subscriberData.volatileData} />
+                  </div>
+
+                  <TechnicalDetails hlrData={subscriberData.hlrData} />
+                </TabsContent>
+              </Tabs>
             </>
           )}
 

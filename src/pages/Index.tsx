@@ -10,6 +10,7 @@ import { NetworkConfig } from "@/components/dashboard/NetworkConfig";
 import { TechnicalDetails } from "@/components/dashboard/TechnicalDetails";
 import { ClientData } from "@/components/dashboard/ClientData";
 import { TimData } from "@/components/dashboard/TimData";
+import { VoLteData } from "@/components/dashboard/VoLteData";
 import { LiquidGlassAlert } from "@/components/ui/LiquidGlassAlert";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { subscriberData } from "@/data/mockData";
@@ -120,12 +121,7 @@ const Index = () => {
                     </TabsContent>
 
                     <TabsContent value="volte" className="mt-6">
-                      <div className="glass glass-border rounded-2xl p-12 text-center">
-                        <h3 className="text-xl font-bold tracking-tighter mb-2">VoLTE</h3>
-                        <p className="text-muted-foreground tracking-tight text-sm">
-                          Informações VoLTE em breve
-                        </p>
-                      </div>
+                      <VoLteData volteData={subscriberData.volteData} />
                     </TabsContent>
 
                     <TabsContent value="tim" className="mt-6">

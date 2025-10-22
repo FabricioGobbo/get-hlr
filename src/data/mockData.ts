@@ -183,5 +183,108 @@ export const subscriberData = {
       ndcf: "0,0,0"
     }
   },
+  volteData: {
+    subscriber: {
+      imsi: "724173000076819",
+      k: "860F49A47FA46C88833A44EF41225A8C",
+      op: null,
+      op_c: "568CCE818EBC0D7C6DECEBE616AF6843",
+      amf: "8000",
+      sqn: "000000000000",
+      basic_msisdn: "5521920186546",
+      eps_profile_id: 3,
+      sms_profile_id: null
+    },
+    profile: {
+      description: "ims-surf",
+      access_restriction: {
+        utran: true,
+        geran: true,
+        gan: true,
+        i_hspa_evolution: false,
+        wb_e_utran: true,
+        handover_to_non_3gpp_access: false,
+        nb_iot: false,
+        enhanced_coverage: false,
+        nr_as_secondary_rat_in_e_utran: true,
+        unlicensed_spectrum_as_secondary_rat: false,
+        nr_in_5gs: true,
+        lte_m: true,
+        wb_e_utran_except_lte_m: false,
+        wb_e_utran_leo: false,
+        wb_e_utran_meo: false,
+        wb_e_utran_geo: false,
+        wb_e_utran_othersat: false,
+        nb_iot_leo: false,
+        nb_iot_meo: false,
+        nb_iot_geo: false,
+        nb_iot_othersat: false,
+        lte_m_leo: false,
+        lte_m_meo: false,
+        lte_m_geo: false,
+        lte_m_othersat: false
+      },
+      network_access_mode: "ONLY_PACKET",
+      ambr: {
+        max_bandwidth_uplink: 1024000000,
+        max_bandwidth_downlink: 1024000000
+      },
+      subscribed_periodic_rau_tau_timer: 720,
+      apn_configurations: [
+        {
+          pdn_type: "IPv4v6",
+          service_selection: "ims",
+          eps_subscribed_qos_profile: {
+            qos_class_identifier: 5,
+            allocation_retention_priority: {
+              priority_level: 15,
+              pre_emption_capability: false,
+              pre_emption_vulnerability: false
+            }
+          },
+          vplmn_dynamic_address_allowed: false,
+          ambr: {
+            max_bandwidth_uplink: 1024000000,
+            max_bandwidth_downlink: 1024000000
+          }
+        },
+        {
+          pdn_type: "IPv4v6",
+          service_selection: "xcap",
+          eps_subscribed_qos_profile: {
+            qos_class_identifier: 9,
+            allocation_retention_priority: {
+              priority_level: 8,
+              pre_emption_capability: false,
+              pre_emption_vulnerability: false
+            }
+          },
+          vplmn_dynamic_address_allowed: false,
+          ambr: {
+            max_bandwidth_uplink: 1024000000,
+            max_bandwidth_downlink: 1024000000
+          }
+        },
+        {
+          pdn_type: "IPv4v6",
+          service_selection: "surf.br",
+          eps_subscribed_qos_profile: {
+            qos_class_identifier: 9,
+            allocation_retention_priority: {
+              priority_level: 8,
+              pre_emption_capability: false,
+              pre_emption_vulnerability: false
+            }
+          },
+          vplmn_dynamic_address_allowed: false,
+          ambr: {
+            max_bandwidth_uplink: 1024000000,
+            max_bandwidth_downlink: 1024000000
+          }
+        }
+      ],
+      id: 3
+    }
+  },
   warning: "Partial data: Some APIs failed"
 };

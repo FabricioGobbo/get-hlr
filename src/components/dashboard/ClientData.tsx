@@ -170,7 +170,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
             <p className="font-bold text-white text-2xl drop-shadow-lg">
               {data.blockStatus.vozOriginada ? "SIM" : "NÃO"}
             </p>
-            <p className="text-xs text-gray-900 font-semibold tracking-tight">VOZ ORIGINADA BLOQUEADA?</p>
+            <p className="text-xs text-muted-foreground tracking-tight">VOZ ORIGINADA BLOQUEADA?</p>
           </div>
         </LiquidGlassCard>
 
@@ -185,7 +185,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
             <p className="font-bold text-white text-2xl drop-shadow-lg">
               {data.blockStatus.vozTerminada ? "SIM" : "NÃO"}
             </p>
-            <p className="text-xs text-gray-900 font-semibold tracking-tight">VOZ TERMINADA BLOQUEADA?</p>
+            <p className="text-xs text-muted-foreground tracking-tight">VOZ TERMINADA BLOQUEADA?</p>
           </div>
         </LiquidGlassCard>
 
@@ -200,7 +200,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
             <p className="font-bold text-white text-2xl drop-shadow-lg">
               {data.blockStatus.sms ? "SIM" : "NÃO"}
             </p>
-            <p className="text-xs text-gray-900 font-semibold tracking-tight">SMS BLOQUEADO?</p>
+            <p className="text-xs text-muted-foreground tracking-tight">SMS BLOQUEADO?</p>
           </div>
         </LiquidGlassCard>
 
@@ -215,7 +215,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
             <p className="font-bold text-white text-2xl drop-shadow-lg">
               {data.blockStatus.dados ? "SIM" : "NÃO"}
             </p>
-            <p className="text-xs text-gray-900 font-semibold tracking-tight">DADO BLOQUEADO?</p>
+            <p className="text-xs text-muted-foreground tracking-tight">DADO BLOQUEADO?</p>
           </div>
         </LiquidGlassCard>
 
@@ -230,7 +230,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
             <p className="font-bold text-white text-2xl drop-shadow-lg">
               {data.blockStatus.velocidade ? "SIM" : "NÃO"}
             </p>
-            <p className="text-xs text-gray-900 font-semibold tracking-tight">VELOCIDADE REDUZIDA?</p>
+            <p className="text-xs text-muted-foreground tracking-tight">VELOCIDADE REDUZIDA?</p>
           </div>
         </LiquidGlassCard>
 
@@ -245,7 +245,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
             <p className="font-bold text-white text-2xl drop-shadow-lg">
               {data.blockStatus.chip ? "SIM" : "NÃO"}
             </p>
-            <p className="text-xs text-gray-900 font-semibold tracking-tight">CHIP BLOQUEADO?</p>
+            <p className="text-xs text-muted-foreground tracking-tight">CHIP BLOQUEADO?</p>
           </div>
         </LiquidGlassCard>
       </div>

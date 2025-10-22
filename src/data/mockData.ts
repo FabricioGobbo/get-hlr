@@ -96,5 +96,92 @@ export const subscriberData = {
     vlrLocationInformation: {},
     sgsnLocationInformation: {}
   },
+  timData: {
+    MOAttributes: {
+      msisdn: "5566920007721",
+      imsi: "724172037752069",
+      hlrSub: {
+        msisdn: "5566920007721",
+        imsi: "724172037752069",
+        csp: "100",
+        gprs: [
+          {
+            apnid: "566",
+            pdpid: "1",
+            eqosid: "417",
+            pdpty: "IPV4",
+            vpaa: "0"
+          }
+        ],
+        nam: {
+          prov: "0"
+        },
+        boic: {
+          provisionState: "1",
+          ts10: {
+            activationState: "1"
+          },
+          ts20: {
+            activationState: "0"
+          },
+          ts60: {},
+          tsd0: {},
+          bs20: {
+            activationState: "0"
+          },
+          bs30: {
+            activationState: "0"
+          }
+        },
+        cfnry: {
+          provisionState: "1",
+          ts10: {
+            activationState: "0"
+          },
+          bs20: {
+            activationState: "0"
+          },
+          bs30: {
+            activationState: "0"
+          }
+        },
+        cfu: {
+          provisionState: "1"
+        },
+        dcf: {},
+        bs2g: "1",
+        bs3g: "1",
+        cat: "224",
+        clip: "1",
+        clir: "1",
+        dbsg: "1",
+        hold: "1",
+        mpty: "1",
+        ofa: "66",
+        pici: "1",
+        pwd: "0000",
+        socfry: "0",
+        soclip: "0",
+        soclir: "2",
+        ts11: "1",
+        ts21: "1",
+        ts22: "1",
+        locationData: {
+          vlrAddress: "4-556281138800",
+          sgsnNumber: "4-554199138400"
+        },
+        vlrData: "4-556281138800",
+        tsmo: "0",
+        rsa: "1",
+        schar: "8-0",
+        authd: "AVAILABLE"
+      },
+      ncfb: "1,0,0",
+      ncfnrc: "1,0,0",
+      ncfnry: "1,0,0",
+      ncfu: "1,0,0",
+      ndcf: "0,0,0"
+    }
+  },
   warning: "Partial data: Some APIs failed"
 };

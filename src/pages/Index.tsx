@@ -9,6 +9,7 @@ import { SecurityStatus } from "@/components/dashboard/SecurityStatus";
 import { NetworkConfig } from "@/components/dashboard/NetworkConfig";
 import { TechnicalDetails } from "@/components/dashboard/TechnicalDetails";
 import { ClientData } from "@/components/dashboard/ClientData";
+import { TimData } from "@/components/dashboard/TimData";
 import { LiquidGlassAlert } from "@/components/ui/LiquidGlassAlert";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { subscriberData } from "@/data/mockData";
@@ -77,22 +78,60 @@ const Index = () => {
                 </TabsContent>
 
                 <TabsContent value="rede" className="mt-6 space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in-0 duration-500">
-                    <ClientInfo
-                      msisdn={subscriberData.msisdn}
-                      imsi={subscriberData.imsi}
-                      iccId={subscriberData.iccId}
-                      operatorName={subscriberData.operatorName}
-                      status={subscriberData.hlrData.active ? "Ativo" : "Inativo"}
-                      searchedBy={searchedBy}
-                    />
-                    <ActiveServices volatileData={subscriberData.volatileData} lteData={subscriberData.lteData} volteActive={subscriberData.volteActive} />
-                    <NetworkConfig hlrData={subscriberData.hlrData} lteData={subscriberData.lteData} />
-                    <NetworkLocation volatileData={subscriberData.volatileData} />
-                    <SecurityStatus hlrData={subscriberData.hlrData} />
-                  </div>
+                  <Tabs defaultValue="summa">
+                    <TabsList className="grid w-full grid-cols-3 mb-6 bg-white/20 backdrop-blur-lg border-2 border-white/30 p-1">
+                      <TabsTrigger 
+                        value="summa" 
+                        className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg font-semibold"
+                      >
+                        Summa
+                      </TabsTrigger>
+                      <TabsTrigger 
+                        value="volte"
+                        className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg font-semibold"
+                      >
+                        VoLTE
+                      </TabsTrigger>
+                      <TabsTrigger 
+                        value="tim"
+                        className="data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-lg font-semibold"
+                      >
+                        Tim
+                      </TabsTrigger>
+                    </TabsList>
 
-                  <TechnicalDetails hlrData={subscriberData.hlrData} />
+                    <TabsContent value="summa" className="mt-6 space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in-0 duration-500">
+                        <ClientInfo
+                          msisdn={subscriberData.msisdn}
+                          imsi={subscriberData.imsi}
+                          iccId={subscriberData.iccId}
+                          operatorName={subscriberData.operatorName}
+                          status={subscriberData.hlrData.active ? "Ativo" : "Inativo"}
+                          searchedBy={searchedBy}
+                        />
+                        <ActiveServices volatileData={subscriberData.volatileData} lteData={subscriberData.lteData} volteActive={subscriberData.volteActive} />
+                        <NetworkConfig hlrData={subscriberData.hlrData} lteData={subscriberData.lteData} />
+                        <NetworkLocation volatileData={subscriberData.volatileData} />
+                        <SecurityStatus hlrData={subscriberData.hlrData} />
+                      </div>
+
+                      <TechnicalDetails hlrData={subscriberData.hlrData} />
+                    </TabsContent>
+
+                    <TabsContent value="volte" className="mt-6">
+                      <div className="glass glass-border rounded-2xl p-12 text-center">
+                        <h3 className="text-xl font-bold tracking-tighter mb-2">VoLTE</h3>
+                        <p className="text-muted-foreground tracking-tight text-sm">
+                          Informações VoLTE em breve
+                        </p>
+                      </div>
+                    </TabsContent>
+
+                    <TabsContent value="tim" className="mt-6">
+                      <TimData timData={subscriberData.timData} />
+                    </TabsContent>
+                  </Tabs>
                 </TabsContent>
               </Tabs>
             </>

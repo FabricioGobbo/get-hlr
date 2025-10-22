@@ -162,7 +162,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
           </div>
         </LiquidGlassCard>
 
-        <LiquidGlassCard hover={false} className="text-center lg:col-span-2">
+        <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.planName}</p>
             <p className="text-xs text-muted-foreground tracking-tight">PLANO</p>
@@ -182,9 +182,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
             <p className="text-xs text-muted-foreground tracking-tight">IMSI</p>
           </div>
         </LiquidGlassCard>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.sistema}</p>

@@ -157,15 +157,15 @@ export const ClientData = ({ data }: ClientDataProps) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
-            <p className="font-bold text-green-600 dark:text-green-400 text-lg">{data.operadora}</p>
-            <p className="text-xs text-muted-foreground tracking-tight">OPERADORA</p>
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.planName}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PLANO</p>
           </div>
         </LiquidGlassCard>
 
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
-            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.planName}</p>
-            <p className="text-xs text-muted-foreground tracking-tight">PLANO</p>
+            <p className="font-bold text-green-600 dark:text-green-400 text-lg">{data.operadora}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">OPERADORA</p>
           </div>
         </LiquidGlassCard>
 
@@ -178,28 +178,21 @@ export const ClientData = ({ data }: ClientDataProps) => {
 
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
-            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.imsi}</p>
-            <p className="text-xs text-muted-foreground tracking-tight">IMSI</p>
-          </div>
-        </LiquidGlassCard>
-
-        <LiquidGlassCard hover={false} className="text-center">
-          <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.sistema}</p>
             <p className="text-xs text-muted-foreground tracking-tight">SISTEMA</p>
           </div>
         </LiquidGlassCard>
-      </div>
 
-      {/* Bloco 4: Informações financeiras e de ativação */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-lg">{data.cpf}</p>
             <p className="text-xs text-muted-foreground tracking-tight">CPF</p>
           </div>
         </LiquidGlassCard>
+      </div>
 
+      {/* Bloco 4: Informações de ativação e saldos */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-lg">{data.chipActivationDate}</p>

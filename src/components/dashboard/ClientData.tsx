@@ -8,23 +8,33 @@ interface ClientDataProps {
 export const ClientData = ({ data }: ClientDataProps) => {
   return (
     <div className="space-y-6 animate-in fade-in-0 duration-500">
-      {/* Row 1: MSISDN, PIN, PUK, ICCID, IMSI, STATUS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      {/* Row 1: MSISDN, ICCID, PIN, PUK, IMSI, STATUS, SISTEMA, OPERADORA */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-8 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
-            <p className="text-xs text-muted-foreground tracking-tight">MSISDN</p>
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.msisdn}</p>
-            <p className="text-xs text-muted-foreground tracking-tight">ICCID</p>
-            <p className="font-bold text-blue-600 dark:text-blue-400">{data.iccId}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">MSISDN</p>
           </div>
         </LiquidGlassCard>
 
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
-            <p className="text-xs text-muted-foreground tracking-tight">PIN</p>
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.iccId}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">ICCID</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.pin}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PIN</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.puk}</p>
             <p className="text-xs text-muted-foreground tracking-tight">PUK</p>
-            <p className="font-bold text-blue-600 dark:text-blue-400">{data.puk}</p>
           </div>
         </LiquidGlassCard>
 
@@ -53,6 +63,99 @@ export const ClientData = ({ data }: ClientDataProps) => {
           <div className="space-y-1">
             <p className="font-bold text-green-600 dark:text-green-400 text-2xl">{data.operadora}</p>
             <p className="text-xs text-muted-foreground tracking-tight">OPERADORA</p>
+          </div>
+        </LiquidGlassCard>
+      </div>
+
+      {/* Block Status Cards - Moved to top */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+        <LiquidGlassCard 
+          hover={false} 
+          className={data.blockStatus.vozOriginada 
+            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
+            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
+          }
+        >
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-2xl drop-shadow-lg">
+              {data.blockStatus.vozOriginada ? "SIM" : "NÃO"}
+            </p>
+            <p className="text-xs text-muted-foreground tracking-tight">VOZ ORIGINADA BLOQUEADA?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard 
+          hover={false} 
+          className={data.blockStatus.vozTerminada 
+            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
+            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
+          }
+        >
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-2xl drop-shadow-lg">
+              {data.blockStatus.vozTerminada ? "SIM" : "NÃO"}
+            </p>
+            <p className="text-xs text-muted-foreground tracking-tight">VOZ TERMINADA BLOQUEADA?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard 
+          hover={false} 
+          className={data.blockStatus.sms 
+            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
+            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
+          }
+        >
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-2xl drop-shadow-lg">
+              {data.blockStatus.sms ? "SIM" : "NÃO"}
+            </p>
+            <p className="text-xs text-muted-foreground tracking-tight">SMS BLOQUEADO?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard 
+          hover={false} 
+          className={data.blockStatus.dados 
+            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
+            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
+          }
+        >
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-2xl drop-shadow-lg">
+              {data.blockStatus.dados ? "SIM" : "NÃO"}
+            </p>
+            <p className="text-xs text-muted-foreground tracking-tight">DADO BLOQUEADO?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard 
+          hover={false} 
+          className={data.blockStatus.velocidade 
+            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
+            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
+          }
+        >
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-2xl drop-shadow-lg">
+              {data.blockStatus.velocidade ? "SIM" : "NÃO"}
+            </p>
+            <p className="text-xs text-muted-foreground tracking-tight">VELOCIDADE REDUZIDA?</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard 
+          hover={false} 
+          className={data.blockStatus.chip 
+            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
+            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
+          }
+        >
+          <div className="text-center space-y-2">
+            <p className="font-bold text-white text-2xl drop-shadow-lg">
+              {data.blockStatus.chip ? "SIM" : "NÃO"}
+            </p>
+            <p className="text-xs text-muted-foreground tracking-tight">CHIP BLOQUEADO?</p>
           </div>
         </LiquidGlassCard>
       </div>
@@ -157,98 +260,6 @@ export const ClientData = ({ data }: ClientDataProps) => {
         </LiquidGlassCard>
       </div>
 
-      {/* Row 5: Block Status Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-        <LiquidGlassCard 
-          hover={false} 
-          className={data.blockStatus.vozOriginada 
-            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
-            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
-          }
-        >
-          <div className="text-center space-y-2">
-            <p className="font-bold text-white text-2xl drop-shadow-lg">
-              {data.blockStatus.vozOriginada ? "SIM" : "NÃO"}
-            </p>
-            <p className="text-xs text-muted-foreground tracking-tight">VOZ ORIGINADA BLOQUEADA?</p>
-          </div>
-        </LiquidGlassCard>
-
-        <LiquidGlassCard 
-          hover={false} 
-          className={data.blockStatus.vozTerminada 
-            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
-            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
-          }
-        >
-          <div className="text-center space-y-2">
-            <p className="font-bold text-white text-2xl drop-shadow-lg">
-              {data.blockStatus.vozTerminada ? "SIM" : "NÃO"}
-            </p>
-            <p className="text-xs text-muted-foreground tracking-tight">VOZ TERMINADA BLOQUEADA?</p>
-          </div>
-        </LiquidGlassCard>
-
-        <LiquidGlassCard 
-          hover={false} 
-          className={data.blockStatus.sms 
-            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
-            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
-          }
-        >
-          <div className="text-center space-y-2">
-            <p className="font-bold text-white text-2xl drop-shadow-lg">
-              {data.blockStatus.sms ? "SIM" : "NÃO"}
-            </p>
-            <p className="text-xs text-muted-foreground tracking-tight">SMS BLOQUEADO?</p>
-          </div>
-        </LiquidGlassCard>
-
-        <LiquidGlassCard 
-          hover={false} 
-          className={data.blockStatus.dados 
-            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
-            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
-          }
-        >
-          <div className="text-center space-y-2">
-            <p className="font-bold text-white text-2xl drop-shadow-lg">
-              {data.blockStatus.dados ? "SIM" : "NÃO"}
-            </p>
-            <p className="text-xs text-muted-foreground tracking-tight">DADO BLOQUEADO?</p>
-          </div>
-        </LiquidGlassCard>
-
-        <LiquidGlassCard 
-          hover={false} 
-          className={data.blockStatus.velocidade 
-            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
-            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
-          }
-        >
-          <div className="text-center space-y-2">
-            <p className="font-bold text-white text-2xl drop-shadow-lg">
-              {data.blockStatus.velocidade ? "SIM" : "NÃO"}
-            </p>
-            <p className="text-xs text-muted-foreground tracking-tight">VELOCIDADE REDUZIDA?</p>
-          </div>
-        </LiquidGlassCard>
-
-        <LiquidGlassCard 
-          hover={false} 
-          className={data.blockStatus.chip 
-            ? "bg-red-600/50 border-red-500/70 shadow-red-500/30 shadow-lg" 
-            : "bg-emerald-500/30 border-emerald-400/50 shadow-emerald-400/20 shadow-lg"
-          }
-        >
-          <div className="text-center space-y-2">
-            <p className="font-bold text-white text-2xl drop-shadow-lg">
-              {data.blockStatus.chip ? "SIM" : "NÃO"}
-            </p>
-            <p className="text-xs text-muted-foreground tracking-tight">CHIP BLOQUEADO?</p>
-          </div>
-        </LiquidGlassCard>
-      </div>
     </div>
   );
 };

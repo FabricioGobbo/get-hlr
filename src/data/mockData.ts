@@ -5,6 +5,8 @@ export const subscriberData = {
   iccId: "895517022037582131",
   pin: "0000",
   puk: "59263234",
+  pin2: "12345",
+  puk2: "987665",
   cpf: "222.205.248-33",
   status: "ACTIVE",
   sistema: "CORREIOS",

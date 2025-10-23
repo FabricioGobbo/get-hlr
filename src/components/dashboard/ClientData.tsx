@@ -223,7 +223,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
       </div>
 
       {/* Bloco 5: Identificadores técnicos */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.iccId}</p>
@@ -241,7 +241,14 @@ export const ClientData = ({ data }: ClientDataProps) => {
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.pin}</p>
-            <p className="text-xs text-muted-foreground tracking-tight">PIN</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PIN1</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.pin2}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PIN2</p>
           </div>
         </LiquidGlassCard>
 

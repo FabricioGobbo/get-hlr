@@ -223,7 +223,7 @@ export const ClientData = ({ data }: ClientDataProps) => {
       </div>
 
       {/* Bloco 5: Identificadores técnicos */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         <LiquidGlassCard hover={false} className="text-center">
           <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.iccId}</p>
@@ -249,6 +249,13 @@ export const ClientData = ({ data }: ClientDataProps) => {
           <div className="space-y-1">
             <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.puk}</p>
             <p className="text-xs text-muted-foreground tracking-tight">PUK</p>
+          </div>
+        </LiquidGlassCard>
+
+        <LiquidGlassCard hover={false} className="text-center">
+          <div className="space-y-1">
+            <p className="font-bold text-blue-600 dark:text-blue-400 text-lg">{data.puk2}</p>
+            <p className="text-xs text-muted-foreground tracking-tight">PUK2</p>
           </div>
         </LiquidGlassCard>
       </div>

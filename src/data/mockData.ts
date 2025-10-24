@@ -9,8 +9,8 @@ export const subscriberData = {
   puk2: "83948670",
   cpf: "489.153.748-51",
   status: "ACTIVE",
-  sistema: "CORREIOS",
-  operadora: "NENHUMA",
+  sistema: "CORREIOS", // noMvno
+  operadora: "NENHUMA", // noSubmvno
   volteActive: true,
   categoria: "COLABORADOR",
   chipActivationDate: "15-12-2020",

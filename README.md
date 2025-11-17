@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# HLR Service BFF
 
-## Project info
+Backend for Frontend (BFF) que funciona como proxy para 5 APIs de telecom.
 
-**URL**: https://lovable.dev/projects/943badd0-4fc0-40bd-abd0-8599a8b18e73
+## Tecnologias
 
-## How can I edit this code?
+- NestJS 10
+- TypeScript
+- Axios
+- Swagger/OpenAPI
 
-There are several ways of editing your application.
+## Estrutura do Projeto
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/943badd0-4fc0-40bd-abd0-8599a8b18e73) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+/code
+├── src/
+│   ├── main.ts                       # CORS habilitado para localhost:8081, porta 3001
+│   ├── app.module.ts                 # Módulo principal
+│   ├── config/
+│   │   └── env.config.ts             # Variáveis de ambiente
+│   ├── auth/
+│   │   ├── auth.guard.ts             # Valida token do header Authorization
+│   │   └── public.decorator.ts       # @Public() para bypass
+│   └── proxies/                      # Controladores proxy
+│       ├── hss.controller.ts         # POST /api/hss
+│       ├── conta.controller.ts       # GET /api/conta/:id/detalhes
+│       ├── summa.controller.ts       # POST /api/summa
+│       ├── hlr.controller.ts         # POST /api/hlr
+│       ├── hub.controller.ts         # POST /api/hub
+│       └── health.controller.ts      # GET /health
+├── .env
+└── package.json
 ```
 
-**Edit a file directly in GitHub**
+## Endpoints
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| BFF Endpoint              | Método | API Real                                      | Autenticação |
+|--------------------------|--------|-----------------------------------------------|--------------|
+| /api/hss                 | POST   | http://localhost:3000/develop/network-subscriber | Sim        |
+| /api/conta/:id/detalhes  | GET    | http://localhost:3000/v1/conta/:id/detalhes  | Sim          |
+| /api/summa               | POST   | TBD                                           | Sim          |
+| /api/hlr                 | POST   | TBD                                           | Sim          |
+| /api/hub                 | POST   | TBD                                           | Sim          |
+| /health                  | GET    | -                                             | Não (@Public)|
+| /api                     | GET    | Swagger                                       | Não (@Public)|
 
-**Use GitHub Codespaces**
+## Instalação
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm install
+```
 
-## What technologies are used for this project?
+## Configuração
 
-This project is built with:
+Configure as variáveis de ambiente no arquivo `.env`:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```env
+PORT=3001
+CORS_ORIGIN=http://localhost:8081
+HSS_URL=http://localhost:3000
+CONTA_URL=http://localhost:3000
+SUMMA_URL=http://localhost:3000
+HLR_URL=http://localhost:3000
+HUB_URL=http://localhost:3000
+HTTP_TIMEOUT=30000
+```
 
-## How can I deploy this project?
+## Executar
 
-Simply open [Lovable](https://lovable.dev/projects/943badd0-4fc0-40bd-abd0-8599a8b18e73) and click on Share -> Publish.
+### Desenvolvimento
+```bash
+npm run start:dev
+```
 
-## Can I connect a custom domain to my Lovable project?
+### Produção
+```bash
+npm run build
+npm run start:prod
+```
 
-Yes, you can!
+## Autenticação
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Todas as rotas (exceto `/health` e `/api`) requerem um token Bearer no header:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```
+Authorization: Bearer {token}
+```
+
+O `SpecTokenGuard` valida:
+- Presença do header Authorization
+- Formato Bearer correto
+- Token não vazio
+
+Rotas públicas podem usar o decorator `@Public()` para bypass.
+
+## Endpoints Públicos
+
+- `GET /health` - Health check
+- `GET /api` - Documentação Swagger
+
+## Logs
+
+Todas as requisições são logadas com:
+- URL de destino
+- Body da requisição (DEBUG)
+- Status da resposta
+- Dados da resposta (DEBUG)
+- Erros detalhados
+
+## Tratamento de Erros
+
+O BFF captura erros das APIs e retorna:
+- Status HTTP original da API
+- Mensagem de erro da API
+- Log completo do erro no servidor
+
+## Acesso
+
+- Aplicação: http://localhost:3001
+- Health Check: http://localhost:3001/health
+- Swagger UI: http://localhost:3001/api

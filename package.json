@@ -42,4 +42,11 @@
   "engines": {
     "node": ">=18.0.0"
   }
+  {
+  "scripts": {
+    "build:dev": "vite build --mode development",
+    // ... seus outros scripts existentes
+  }
+}
+
 }

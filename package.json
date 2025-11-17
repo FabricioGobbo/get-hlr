@@ -9,7 +9,8 @@
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "build:dev": "vite build --mode development"
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.1",
@@ -42,11 +43,4 @@
   "engines": {
     "node": ">=18.0.0"
   }
-  {
-  "scripts": {
-    "build:dev": "vite build --mode development",
-    // ... seus outros scripts existentes
-  }
-}
-
 }
